@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class JogoController {
 
     @GetMapping("/menu")
-    public String mostraSaudacao() {
-        return "index";
-        }
-    @GetMapping("/jogo")
-    public String returnJogo(Model model, String ID, String nome){
+    public String mostrarMenu(Model model, String ID, String nome) {
         Jogo j = new Jogo();
         ID = "1234";
         nome = "Jogo1";
@@ -21,5 +17,9 @@ public class JogoController {
         j.setNome(nome);
         model.addAttribute("jogo", j);
         return "index";
+        }
+    @GetMapping("/jogo")
+    public String returnJogo(){
+        return "jogo";
     }
 }
