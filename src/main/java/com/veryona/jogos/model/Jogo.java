@@ -4,6 +4,8 @@
  */
 package com.veryona.jogos.model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Luiz
@@ -11,6 +13,8 @@ package com.veryona.jogos.model;
 public class Jogo {
     String ID;
     String nome;
+    String plataforma;
+    LocalDate dataLancamento;
 
     public String getID() {
         return ID;
@@ -26,6 +30,22 @@ public class Jogo {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
     
     

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+    <head>
+        <title>Novo jogo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    </head>
+    <body>
+        <nav class="navbar bg-secondary bg-gradient">
+            <a href="url">Menu</a>
+        </nav>
+        
+        <h1>Insira as informações do jogo que deseja cadastrar</h1>
+        
+        <form th:action="@{/novoJogo}" th:object="${jogo}" method="post">
+            <label for="jogoID">ID do jogo</label>
+            <input type="text" id="jogoID" th:field="*{ID}"/>
+            <label for="jogoNome">Nome do jogo</label>
+            <input type="text" id="jogoNome" th:field="*{nome}"/>
+            <label for="jogoPlataforma">Plataforma em que o jogo foi lançado</label>
+            <input type="text" id="jogoPlataforma" th:field="*{plataforma}"/>
+            <label for="jogoLancamento">Data de lancamento em que o jogo foi lançado na plataforma selecionada</label>
+            <input type="date" id="jogoLancamento" th:field="*{dataLancamento}"/>
+            <input type="submit" value="Adicionar"/>
+        </form>
+    </body>
+</html>
