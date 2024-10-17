@@ -25,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr th:each="jogo : ${jogos}">
                     <td><span th:text="${jogo.ID}"/></td>
                     <td><span th:text="${jogo.nome}"/></td>
                     <td><span th:text="${jogo.plataforma}"/></td>
