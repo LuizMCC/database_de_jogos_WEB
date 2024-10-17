@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,13 @@ public class JogoController {
     @GetMapping("/menu")
     public String mostrarMenu(Model model, String ID, String nome, String plataforma, LocalDate dataLancamento) {
         //DateTimeFormatter dataForm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        Jogo j = new Jogo();
-        j.setID(ID);
-        j.setNome(nome);
-        j.setPlataforma(plataforma);
-        j.setDataLancamento(dataLancamento);
-        model.addAttribute("jogo", j);
+        //Jogo j = new Jogo();
+        //j.setID(ID);
+        //j.setNome(nome);
+        //j.setPlataforma(plataforma);
+        //j.setDataLancamento(dataLancamento);
+        jogos.sort(Comparator.comparing(Jogo::getID).reversed());
+        model.addAttribute("jogos", jogos);
         return "index";
         }
     @GetMapping("/jogo")
@@ -43,6 +46,6 @@ public class JogoController {
     public String cadastrarJogo(Model model, @ModelAttribute Jogo jogo){
         jogos.add(jogo);
         model.addAttribute("jogos", jogos);
-        return "index";
+        return "redirect:/menu";
     }
 }

@@ -9,27 +9,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+        <link th:href="@{/css/style.css}" rel="stylesheet"/>
     </head>
     <body>
         <header th:insert="navbar.html :: nav"></header>
+
+        <div class="ms-2">
+            <h1>Bem vindo ao GameDataBank!</h1>
+        </div>
+        <div class="row">
+            <div style="height: 300px" class="col-9 cabecarioTabelaFix">
+                <table class="table border border-2 mh-100 sortable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Plataforma</th>
+                            <th>Lançamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="jogo : ${jogos}">
+                            <td><span th:text="${jogo.ID}"/></td>
+                            <td><span th:text="${jogo.nome}"/></td>
+                            <td><span th:text="${jogo.plataforma}"/></td>
+                            <td><span th:text="${jogo.dataLancamento}"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-auto" th:if="${not #lists.isEmpty(jogos)}" th:with="ultimoJogo=${jogos[#lists.size(jogos) - 1]}">
+                <p><b>Ultimo jogo adicionado:</b></p><br/>
+                <a href="url"><span th:text="${ultimoJogo.nome}"/></a>
+            </div>
+        </div>
         
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Plataforma</th>
-                    <th>Lançamento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="jogo : ${jogos}">
-                    <td><span th:text="${jogo.ID}"/></td>
-                    <td><span th:text="${jogo.nome}"/></td>
-                    <td><span th:text="${jogo.plataforma}"/></td>
-                    <td><span th:text="${jogo.dataLancamento}"/></td>
-                </tr>
-            </tbody>
-        </table>
+        <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"/>
     </body>
 </html>
