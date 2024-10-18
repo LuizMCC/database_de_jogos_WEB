@@ -10,16 +10,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
         <link th:href="@{/css/style.css}" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"/>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#mainTable').DataTable({
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollY: '300px'
+                });
+            });
+
+        </script>
     </head>
     <body>
-        <header th:insert="navbar.html :: nav"></header>
+        <header th:insert="~{navbar.html :: nav}"></header>
 
         <div class="ms-2">
             <h1>Bem vindo ao GameDataBank!</h1>
         </div>
         <div class="row">
-            <div style="height: 300px" class="col-9 cabecarioTabelaFix">
-                <table class="table border border-2 mh-100 sortable">
+            <div class="col-9">
+                <table class="table table-striped table-bordered border-white" id="mainTable" data-page-length="50" style="width: 100%">
                     <thead class="table-light">
                         <tr>
                             <th>ID</th>
@@ -31,7 +46,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <tbody>
                         <tr th:each="jogo : ${jogos}">
                             <td><span th:text="${jogo.ID}"/></td>
-                            <td><span th:text="${jogo.nome}"/></td>
+                            <td><a href="url"><span th:text="${jogo.nome}"/></a></td> <!-- Lembrar de mudar isso para que para selecionar a linha ao invez de so o nome -->
                             <td><span th:text="${jogo.plataforma}"/></td>
                             <td><span th:text="${jogo.dataLancamento}"/></td>
                         </tr>
@@ -43,7 +58,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <a href="url"><span th:text="${ultimoJogo.nome}"/></a>
             </div>
         </div>
-        
-        <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"/>
+
+
     </body>
 </html>

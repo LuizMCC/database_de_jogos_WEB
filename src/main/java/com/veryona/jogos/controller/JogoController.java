@@ -27,7 +27,6 @@ public class JogoController {
         //j.setNome(nome);
         //j.setPlataforma(plataforma);
         //j.setDataLancamento(dataLancamento);
-        jogos.sort(Comparator.comparing(Jogo::getID).reversed());
         model.addAttribute("jogos", jogos);
         return "index";
         }
