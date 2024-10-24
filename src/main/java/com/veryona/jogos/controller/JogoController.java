@@ -1,5 +1,6 @@
 package com.veryona.jogos.controller;
 
+import com.veryona.jogos.model.Console;
 import com.veryona.jogos.model.Jogo;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -18,20 +19,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class JogoController {
     
     List<Jogo> jogos = new ArrayList();
-
+    List<Console> consoles = new ArrayList();
+    
     @GetMapping("/menu")
-    public String mostrarMenu(Model model, String ID, String nome, String plataforma, LocalDate dataLancamento) {
-        //DateTimeFormatter dataForm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        //Jogo j = new Jogo();
-        //j.setID(ID);
-        //j.setNome(nome);
-        //j.setPlataforma(plataforma);
-        //j.setDataLancamento(dataLancamento);
+    public String mostrarMenu(Model model) {
+        
+        consoles.add(new Console("PS3", "Sony", "PlayStation 3"));
+        consoles.add(new Console(
+                "X360",
+                "MicroSoft",
+                "Xbox 360"
+        ));
+        consoles.add(new Console(
+                "NWii",
+                "Nintendo",
+                "Wii"
+        ));
+        
+        model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
         return "index";
         }
+    
     @GetMapping("/jogo")
-    public String returnJogo(){
+    public String returnJogo(Model model, @ModelAttribute Jogo jogo){
+        model.addAttribute("jogo", jogo);
         return "jogo";
     }
     
