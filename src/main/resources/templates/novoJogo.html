@@ -21,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <label for="jogoNome">Nome do jogo</label>
             <input type="text" id="jogoNome" th:field="*{nome}"/>
             <label for="jogoPlataforma">Plataforma em que o jogo foi lançado</label>
-            <input type="text" list="plataformas"/>
+            <input type="text" list="plataformas" name="consoleID" th:required="required"/>
             <datalist id="plataformas" >
                 <option th:each="console : ${consoles}" th:value="${console.ID}" th:label="${console.nome}"/>
             </datalist>

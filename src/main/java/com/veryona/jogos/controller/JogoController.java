@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class JogoController {
@@ -25,16 +26,6 @@ public class JogoController {
     public String mostrarMenu(Model model) {
         
         consoles.add(new Console("PS3", "Sony", "PlayStation 3"));
-        consoles.add(new Console(
-                "X360",
-                "MicroSoft",
-                "Xbox 360"
-        ));
-        consoles.add(new Console(
-                "NWii",
-                "Nintendo",
-                "Wii"
-        ));
         
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
@@ -49,12 +40,16 @@ public class JogoController {
     
     @GetMapping("/novoJogo")
     public String cadastroJogo(Model model){
+        model.addAttribute("consoles", consoles);
         model.addAttribute("jogo", new Jogo());
         return "novoJogo";
     }
     
     @PostMapping("/novoJogo")
-    public String cadastrarJogo(Model model, @ModelAttribute Jogo jogo){
+    public String cadastrarJogo(Model model, @ModelAttribute Jogo jogo, @RequestParam String consoleID){
+        Console consoleSelecionado = consoles.stream().filter(console -> console.getID().equals(consoleID)).findFirst().orElse(null);
+        jogo.setConsole(consoleSelecionado);    
+        System.out.println(jogo.getConsole().getNome());
         jogos.add(jogo);
         model.addAttribute("jogos", jogos);
         return "redirect:/menu";
