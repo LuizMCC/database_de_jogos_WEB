@@ -33,8 +33,16 @@ public class JogoController {
         }
     
     @GetMapping("/jogo")
-    public String returnJogo(Model model, @ModelAttribute Jogo jogo){
-        model.addAttribute("jogo", jogo);
+    public String returnJogo(Model model, @RequestParam String ID){
+        Jogo jogoAchado = new Jogo();
+        for(Jogo j : jogos){
+            if(j.getID().equals(ID)){
+                jogoAchado = j;
+                break;
+            }
+        }
+        
+        model.addAttribute("jogo", jogoAchado);
         return "jogo";
     }
     
