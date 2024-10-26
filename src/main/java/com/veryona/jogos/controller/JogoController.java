@@ -26,7 +26,7 @@ public class JogoController {
     public String mostrarMenu(Model model) {
         
         consoles.add(new Console("PS3", "Sony", "PlayStation 3"));
-        
+        jogos.add(new Jogo(consoles.get(0), "SLUS-00001", "Jogo1", LocalDate.parse("1999-03-12")));
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
         return "index";
@@ -41,7 +41,7 @@ public class JogoController {
                 break;
             }
         }
-        
+        System.out.println(jogoAchado.getID());
         model.addAttribute("jogo", jogoAchado);
         return "jogo";
     }

@@ -13,6 +13,7 @@
 }
 
 .imagem{
+    border: 2px solid;
     border-top: 2px solid black;
     border-bottom: 2px solid white;
     border-left: 2px solid black;
@@ -25,4 +26,16 @@
     
     max-width: 150px;
     max-height: 250px;
+}
+
+.jogoDetalhesInput{
+    border: 2px solid;
+    border-top: 2px solid black;
+    border-bottom: 2px solid white;
+    border-left: 2px solid black;
+    border-right:  2px solid white;
+    
+    background: white;
+    
+    margin-left: 5px
 }

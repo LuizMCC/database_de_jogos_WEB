@@ -35,6 +35,17 @@ public class Jogo {
     String fontes;
     String descricao;
 
+    public Jogo(){
+        
+    }
+    
+    public Jogo(Console console, String ID, String nome, LocalDate dataLancamento) {
+        this.console = console;
+        this.ID = ID;
+        this.nome = nome;
+        this.dataLancamento = dataLancamento;
+    }
+
     public Console getConsole() {
         return console;
     }
