@@ -21,12 +21,40 @@ public class JogoController {
     
     List<Jogo> jogos = new ArrayList();
     List<Console> consoles = new ArrayList();
+    DateTimeFormatter dataForm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
     @GetMapping("/menu")
     public String mostrarMenu(Model model) {
         
-        consoles.add(new Console("PS3", "Sony", "PlayStation 3"));
-        jogos.add(new Jogo(consoles.get(0), "SLUS-00001", "Jogo1", LocalDate.parse("1999-03-12")));
+        LocalDate lanc = LocalDate.parse("18/04/2004", dataForm);
+        
+        consoles.add(new Console(
+                "PS3",
+                "Sony",
+                "PlayStation 3"
+        ));
+        jogos.add(new Jogo(
+                consoles.get(0), //Console
+                "SLUS-00001", //ID
+                "Jogo1", //Nome
+                "US", //Região
+                null, //Versão
+                999.9, //Mb
+                "EA", //Desenvolvedor
+                "Eletronic Arts", //Publicador
+                "T", //Classificação
+                lanc.format(dataForm), //Lançamento
+                "ISO", //Arquivo
+                null, //Capa Frontal
+                null, //Capa Lateral
+                null, //Capa Traseira
+                null, //Capa Midia
+                null, //Linguegens
+                null, //Gênero
+                null, //Midia
+                null, //Fontes
+                null //Descrição
+        ));
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
         return "index";

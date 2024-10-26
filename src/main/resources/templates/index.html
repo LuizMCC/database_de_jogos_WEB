@@ -39,6 +39,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Região</th>
                             <th>Plataforma</th>
                             <th>Lançamento</th>
                         </tr>
@@ -47,6 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <tr th:each="jogo : ${jogos}">
                             <td><span th:text="${jogo.ID}"/></td>
                             <td><a th:href="@{jogo(ID=${jogo.ID})}"><span th:text="${jogo.nome}"/></a></td> <!-- Lembrar de mudar isso para que para selecionar a linha ao invez de so o nome -->
+                            <td><span th:text="${jogo.regiao}">text</span></td>
                             <td><span th:text="${jogo.console.nome}"/></td>
                             <td><span th:text="${jogo.dataLancamento}"/></td>
                         </tr>

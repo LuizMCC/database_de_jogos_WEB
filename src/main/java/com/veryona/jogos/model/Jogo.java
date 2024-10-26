@@ -22,7 +22,7 @@ public class Jogo {
     String dev;
     String pub;
     String classificacao;
-    LocalDate dataLancamento;
+    String dataLancamento;
     String arquivo;
     LocalDateTime add;
     Blob capaFrente;
@@ -38,13 +38,31 @@ public class Jogo {
     public Jogo(){
         
     }
-    
-    public Jogo(Console console, String ID, String nome, LocalDate dataLancamento) {
+
+    public Jogo(Console console, String ID, String nome, String regiao, String versao, double mb, String dev, String pub, String classificacao, String dataLancamento, String arquivo, Blob capaFrente, Blob capaLateral, Blob capaCostas, Blob capaMidia, String linguagens, String genero, String midia, String fontes, String descricao) {
         this.console = console;
         this.ID = ID;
         this.nome = nome;
+        this.regiao = regiao;
+        this.versao = versao;
+        this.mb = mb;
+        this.dev = dev;
+        this.pub = pub;
+        this.classificacao = classificacao;
         this.dataLancamento = dataLancamento;
+        this.arquivo = arquivo;
+        this.capaFrente = capaFrente;
+        this.capaLateral = capaLateral;
+        this.capaCostas = capaCostas;
+        this.capaMidia = capaMidia;
+        this.linguagens = linguagens;
+        this.genero = genero;
+        this.midia = midia;
+        this.fontes = fontes;
+        this.descricao = descricao;
     }
+    
+    
 
     public Console getConsole() {
         return console;
@@ -118,11 +136,11 @@ public class Jogo {
         this.classificacao = classificacao;
     }
     
-    public LocalDate getDataLancamento() {
+    public String getDataLancamento() {
         return dataLancamento;
     }
 
-    public void setDataLancamento(LocalDate dataLancamento) {
+    public void setDataLancamento(String dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 
