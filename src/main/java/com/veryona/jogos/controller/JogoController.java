@@ -38,7 +38,7 @@ public class JogoController {
                 "SLUS-00001", //ID
                 "Jogo1", //Nome
                 "US", //Região
-                null, //Versão
+                "1.00", //Versão
                 999.9, //Mb
                 "EA", //Desenvolvedor
                 "Eletronic Arts", //Publicador
@@ -49,11 +49,11 @@ public class JogoController {
                 null, //Capa Lateral
                 null, //Capa Traseira
                 null, //Capa Midia
-                null, //Linguegens
-                null, //Gênero
-                null, //Midia
-                null, //Fontes
-                null //Descrição
+                "Inglês, Português", //Linguegens
+                "Ação", //Gênero
+                "BluRay", //Midia
+                "Teste", //Fontes
+                "Teste12345" //Descrição
         ));
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);

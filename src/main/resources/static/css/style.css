@@ -38,3 +38,8 @@
     
     margin-left: 5px
 }
+
+.espacamentoTabela tr{
+    margin-bottom: 20px; /* Define espaço entre as linhas */
+    display: block; /* Necessário para que a margem funcione */
+}

@@ -12,6 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link rel="stylesheet" th:href="@{css/style.css}" type="text/css"/>
 
 
+
     </head>
     <body>
         <header th:insert="navbar.html :: nav"/>
@@ -19,28 +20,151 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="imagem col-auto">
                 
             </div>
-            <div class="col-auto">
-                <label for="tfID" class="col-5">ID:</label>
-                <input id="tfID" type="text" disabled="disabled" th:value="${jogo.ID}" class="jogoDetalhesInput col-6"/><br/>
-                <label for="tfNome" class="col-5">Nome:</label>
-                <input id="tfNome" type="text" disabled="disabled" th:value="${jogo.nome}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfRegiao" class="col-5">Região:</label>
-                <input id="tfRegiao" type="text" disabled="disabled" th:value="${jogo.regiao}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfTamanho" class="col-5">Tamanho(mb):</label>
-                <input id="tfTamanho" type="text" disabled="disabled" th:value="${jogo.mb} + mb" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfDev" class="col-5">Desenvolvedor:</label>
-                <input id="tfDev" type="text" disabled="disabled" th:value="${jogo.dev}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfPub" class="col-5">Publicador:</label>
-                <input id="tfPub" type="text" disabled="disabled" th:value="${jogo.pub}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfClass" class="col-5">Classificação:</label>
-                <input id="tfClass" type="text" disabled="disabled" th:value="${jogo.classificacao}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfLanc" class="col-5">Lançamento:</label>
-                <input id="tfLanc" type="text" disabled="disabled" th:value="${jogo.dataLancamento}" class="jogoDetalhesInput mt-1 col-6"/><br/>
-                <label for="tfArq" class="col-5">Formato:</label>
-                <input id="tfArq" type="text" disabled="disabled" th:value="${jogo.arquivo}" class="jogoDetalhesInput mt-1 col-6"/><br/>
+            <div class="col-auto"><!--
+                <label for="tfID" class="col-6">ID:</label>
+                <input id="tfID" type="text" disabled="disabled" th:value="${jogo.ID}" class="jogoDetalhesInput col-7"/><br/>
+                <label for="tfNome" class="col-6">Nome:</label>
+                <input id="tfNome" type="text" disabled="disabled" th:value="${jogo.nome}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfRegiao" class="col-6">Região:</label>
+                <input id="tfRegiao" type="text" disabled="disabled" th:value="${jogo.regiao}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfTamanho" class="col-6">Tamanho(mb):</label>
+                <input id="tfTamanho" type="text" disabled="disabled" th:value="${jogo.mb} + mb" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfDev" class="col-6">Desenvolvedor:</label>
+                <input id="tfDev" type="text" disabled="disabled" th:value="${jogo.dev}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfPub" class="col-6">Publicador:</label>
+                <input id="tfPub" type="text" disabled="disabled" th:value="${jogo.pub}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfClass" class="col-6">Classificação:</label>
+                <input id="tfClass" type="text" disabled="disabled" th:value="${jogo.classificacao}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfLanc" class="col-6">Lançamento:</label>
+                <input id="tfLanc" type="text" disabled="disabled" th:value="${jogo.dataLancamento}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfArq" class="col-6">Formato:</label>
+                <input id="tfArq" type="text" disabled="disabled" th:value="${jogo.arquivo}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfLing" class="col-6">Linguagens disponiveis:</label>
+                <input id="tfLing" type="text" disabled="disabled" th:value="${jogo.linguagens}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfGen" class="col-6">Gênero:</label>
+                <input id="tfGen" type="text" disabled="disabled" th:value="${jogo.genero}" class="jogoDetalhesInput mt-1 col-7"/><br/>
+                <label for="tfMidia" class="col-6">Midia:</label>
+                <input id="tfMidia" type="text" disabled="disabled" th:value="${jogo.midia}" class="jogoDetalhesInput mt-1 col-7"/><br/>
                 
-                <label for="tfVersao" class="col-5" th:if="${jogo.versao}">Ultima versão:</label>
-                <input id="tfVersao" type="text" disabled="disabled" th:value="${jogo.versao}" th:if="${jogo.versao}" class="jogoDetalhesInput mt-1 col-6"/><br/>
+                <label for="tfVersao" class="col-6" th:if="${jogo.versao}">Ultima versão:</label>
+                <input id="tfVersao" type="text" disabled="disabled" th:value="${jogo.versao}" th:if="${jogo.versao}" class="jogoDetalhesInput mt-1 col-7"/><br/>-->
+                           
+                <table class="espacamentoTabela">
+                    <tbody>
+                        <tr> <!-- ID -->
+                            <td>
+                                <span class="align-text-center">ID:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.ID}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Nome -->
+                            <td>
+                                <span class="align-text-center">Nome:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.nome}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Região -->
+                            <td>
+                                <span class="align-text-center">Região:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.regiao}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr th:if="${jogo.versao}"> <!-- Versão -->
+                            <td>
+                                <span class="align-text-center">Ultima versão:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.versao}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Console -->
+                            <td>
+                                <span class="align-text-center">Plataforma:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.console.ID}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Tamanho -->
+                            <td>
+                                <span class="align-text-center">Tamanho:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.mb} + mb" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Desenvolvedor -->
+                            <td>
+                                <span class="align-text-center">Desenvolvedor:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.dev}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Publicador -->
+                            <td>
+                                <span class="align-text-center">Publicador:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.pub}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Classificação -->
+                            <td>
+                                <span class="align-text-center">Classificação:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.classificacao}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Lançamento -->
+                            <td>
+                                <span class="align-text-center">Data de Lançamento:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.dataLancamento}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Arquivo -->
+                            <td>
+                                <span class="align-text-center">Arquivo:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.arquivo}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Linguagem -->
+                            <td>
+                                <span class="align-text-center">Linguagens disponives:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.linguagens}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Gênero -->
+                            <td>
+                                <span class="align-text-center">Gênero:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.genero}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                        <tr> <!-- Midia -->
+                            <td>
+                                <span class="align-text-center">Midia:</span>
+                            </td>
+                            <td>
+                                <input type="text" disabled="disabled" th:value="${jogo.midia}" class="jogoDetalhesInput"/><br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
