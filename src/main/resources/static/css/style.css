@@ -24,7 +24,7 @@
     height: 512px;
     
     max-width: 512px;
-    max-height: 734px;
+    max-height: 512px;
 }
 
 .jogoDetalhesInput{
@@ -36,10 +36,11 @@
     color: black;
     background: white;
     
+    width: 300px;
+    
     margin-left: 5px
 }
 
-.espacamentoTabela tr{
-    margin-bottom: 20px; /* Define espaço entre as linhas */
-    display: block; /* Necessário para que a margem funcione */
+.espacamentoTabela tr, td{
+    padding-bottom: 7px
 }
