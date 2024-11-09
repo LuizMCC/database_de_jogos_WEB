@@ -16,17 +16,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <h1>Insira as informações do jogo que deseja cadastrar</h1>
         
         <form th:action="@{/novoJogo}" th:object="${jogo}" method="post">
-            <label for="jogoID">ID do jogo</label>
-            <input type="text" id="jogoID" th:field="*{ID}"/>
-            <label for="jogoNome">Nome do jogo</label>
-            <input type="text" id="jogoNome" th:field="*{nome}"/>
-            <label for="jogoPlataforma">Plataforma em que o jogo foi lançado</label>
-            <input type="text" list="plataformas" name="consoleID" th:required="required"/>
+            <label for="jogoPlataforma">Plataforma do jogo</label>
+            <input type="text" id="jogoPlataforma" list="plataformas" name="consoleID" th:required="required"/>
             <datalist id="plataformas" >
                 <option th:each="console : ${consoles}" th:value="${console.ID}" th:label="${console.nome}"/>
-            </datalist>
+            </datalist><br/>
+            
+            <label for="jogoID">ID do jogo</label>
+            <input type="text" id="jogoID" th:field="*{ID}" th:required="required"/><br/>
+            
+            <label for="jogoNome">Nome do jogo</label>
+            <input type="text" id="jogoNome" th:field="*{nome}" th:required="required"/><br/>
+            
+            <label for="jogoRegiao">Regiao do jogo(sigla)</label>
+            <input type="text" id="jogoRegiao" th:field="*{regiao}" maxlength="2" th:required="required"/><br/>
+            
+            <label for="jogoVersao">Versão do jogo(Apenas da 7ª Geração para cima)</label>
+            <input type="text" id="jogoVersao" th:field="*{versao}"/><br/>
+            
+            <label for="jogoTamanho">Tamanho do jogo(em MB)</label>
+            <input type="text" id="jogoTamanho" th:field="*{mb}" th:required="required"/><br/>
+            
+            <label for="jogoDev">Desenvolvedor</label>
+            <input type="text" id="jogoDev" th:field="*{dev}" th:required="required"/><br/>
+            
+            <label for="jogoPub">Publicador</label>
+            <input type="text" id="jogoPub" th:field="*{pub}" th:required="required"/><br/>
+            
+            <label for="jogoClass">Classificação indicativa da região</label>
+            <input type="text" id="jogoClass" th:field="*{classificacao}" th:required="required"/><br/>
+            
             <label for="jogoLancamento">Data de lancamento em que o jogo foi lançado na plataforma selecionada</label>
-            <input type="date" id="jogoLancamento" th:field="*{dataLancamento}"/>
+            <input type="date" id="jogoLancamento" th:field="*{dataLancamento}" th:required="required"/><br/>
+            
+            <label for="jogoArquivo">Aquivo do jogo(deixe em branco caso não saiba)</label>
+            <input type="text" id="jogoArquivo" th:field="*{arquivo}"/><br/>
+            
+            <label for="jogoLing">Linguagens disponiveis</label>
+            <input type="text" id="jogoLing" th:field="*{linguagens}"/><br/>
+            
+            <label for="jogoGenero">Gênero</label>
+            <input type="text" id="jogoGenero" th:field="*{genero}"/><br/>
+            
+            <label for="jogoMidia">Midia do jogo</label>
+            <input type="text" id="jogoMidia" th:field="*{midia}" th:required="required"/><br/>
+            
+            <label for="jogoDesc">Descrição do jogo</label><br/>
+            <textarea id="jogoDesc" th:field="*{descricao}"/>
+            
+            <label for="jogoFontes">Fontes das informações(Se as informação forem da capa do jogo, não coloqueas)</label><br/>
+            <textarea id="jogoFontes" th:field="*{fontes}"/>
+            
             <input type="submit" value="Adicionar"/>
         </form>
     </body>
