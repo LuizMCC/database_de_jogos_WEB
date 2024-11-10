@@ -28,7 +28,17 @@ public class JogoController {
         
         LocalDate lanc = LocalDate.parse("18/04/2004", dataForm);
         
-        /*
+        consoles.add(new Console(
+                "PS3",
+                "Sony",
+                "PlayStation 3"
+        ));
+        consoles.add(new Console(
+                "X360",
+                "Microsoft",
+                "Xbox 360"
+        ));
+        
         jogos.add(new Jogo(
                 consoles.get(0), //Console
                 "SLUS-00001", //ID
@@ -50,7 +60,7 @@ public class JogoController {
                 "BluRay", //Midia
                 "Teste", //Fontes
                 "Teste12345" //Descrição
-        ));*/
+        ));
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
         return "index";
@@ -72,17 +82,6 @@ public class JogoController {
     
     @GetMapping("/novoJogo")
     public String cadastroJogo(Model model){
-        
-        consoles.add(new Console(
-                "PS3",
-                "Sony",
-                "PlayStation 3"
-        ));
-        consoles.add(new Console(
-                "X360",
-                "Microsoft",
-                "Xbox 360"
-        ));
         
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogo", new Jogo());

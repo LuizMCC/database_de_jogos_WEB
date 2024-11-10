@@ -44,3 +44,9 @@
 .espacamentoTabela tr, td{
     padding-bottom: 7px
 }
+
+.barraDeFiltro{
+    position: absolute;
+    transform: translateY(25px);
+    z-index: 2
+}

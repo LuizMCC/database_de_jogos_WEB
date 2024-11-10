@@ -20,7 +20,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 $('#mainTable').DataTable({
                     paging: false,
                     scrollCollapse: true,
-                    scrollY: '300px'
+                    scrollY: '300px',
+
+                    initComplete: function () {
+                        this.api().columns().every(function () {
+                            let column = this;
+
+                            if (column.header().innerText === 'Plataforma') {
+                                
+                                let select = document.getElementById('filtro');
+
+                                // Apply listener for user change in value
+                                select.addEventListener('change', function () {
+                                    column
+                                            .search(select.value, {exact: true})
+                                            .draw();
+                                });
+                                
+                            }
+                        });
+                    }
                 });
             });
 
@@ -35,6 +54,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class="w-auto">
             <div class="container-fluid row">
                 <div class="col-9">
+                    <div class="barraDeFiltro">
+                        <span>Console: </span>
+                        <select id="filtro">
+                            <option th:each="console : ${consoles}" th:value="${console.nome}" th:label="${console.nome}"/>
+                        </select>
+                    </div>
                     <table class="table table-striped table-bordered border-white" id="mainTable" data-page-length="50" style="width: 100%">
                         <thead class="table-light">
                             <tr>
