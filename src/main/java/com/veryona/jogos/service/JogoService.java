@@ -1,6 +1,6 @@
 package com.veryona.jogos.service;
 
-import com.veryona.jogos.data.JogoEntity;
+
 import com.veryona.jogos.data.JogoRepository;
 import com.veryona.jogos.model.Jogo;
 import java.util.List;
@@ -14,15 +14,15 @@ public class JogoService {
     JogoRepository repository;
     
     //Select
-    public JogoEntity selectByID(String ID){
+    public Jogo selectByID(String ID){
         return repository.findById(ID).orElseThrow();
     }
-    public List<JogoEntity> selectAll(){
+    public List<Jogo> selectAll(){
         return repository.findAll();
     }
     
     //Insert
-    public JogoEntity insert(JogoEntity jogo){
+    public Jogo insert(Jogo jogo){
         if(jogo == null){
             repository.save(jogo);
             return jogo;

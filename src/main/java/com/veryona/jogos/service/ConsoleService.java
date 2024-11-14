@@ -1,7 +1,7 @@
 package com.veryona.jogos.service;
 
-import com.veryona.jogos.data.ConsoleEntity;
 import com.veryona.jogos.data.ConsoleRepository;
+import com.veryona.jogos.model.Console;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ public class ConsoleService {
     @Autowired
     ConsoleRepository repository;
     
-    public ConsoleEntity selectbyID(String ID){
+    public Console selectbyID(String ID){
         return repository.findById(ID).orElseThrow();
     }
-    public List<ConsoleEntity> selectAll(){
+    public List<Console> selectAll(){
         return repository.findAll();
     }
 }

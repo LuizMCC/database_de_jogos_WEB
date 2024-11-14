@@ -4,6 +4,10 @@
  */
 package com.veryona.jogos.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,9 +15,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="Jogo")
 public class Jogo {
     
+    @ManyToOne
     Console console;
+    @Id
     String ID;
     String nome;
     String regiao;

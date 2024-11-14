@@ -1,9 +1,14 @@
 package com.veryona.jogos.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="Console")
 public class Console {
 
     public Console(String ID, String empresa, String nome) {
@@ -11,7 +16,7 @@ public class Console {
         this.empresa = empresa;
         this.nome = nome;
     }
-    
+    @Id
     String ID;
     String empresa;
     String nome;
