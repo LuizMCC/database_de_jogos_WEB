@@ -35,17 +35,23 @@ public class Jogo {
     String dev;
     String pub;
     String classificacao;
+    @Column(name = "lancamento")
     String dataLancamento;
     String arquivo;
     @Column(name = "adicionado")
     LocalDateTime add;
+    @Column(name = "capafrente")
     Blob capaFrente;
+    @Column(name = "capalateral")
     Blob capaLateral;
+    @Column(name = "capacostas")
     Blob capaCostas;
+    @Column(name = "capamidia")
     Blob capaMidia;
     String linguagens;
     String genero;
-    String midia;
+    @Column(name="midiatipo")
+    String midiaTipo;
     String fontes;
     String descricao;
 
@@ -194,11 +200,11 @@ public class Jogo {
     }
 
     public String getMidia() {
-        return midia;
+        return midiaTipo;
     }
 
     public void setMidia(String midia) {
-        this.midia = midia;
+        this.midiaTipo = midia;
     }
 
     public String getFontes() {

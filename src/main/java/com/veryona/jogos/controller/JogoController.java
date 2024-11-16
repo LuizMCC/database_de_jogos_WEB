@@ -7,6 +7,7 @@ import com.veryona.jogos.service.JogoService;
 import jakarta.annotation.PostConstruct;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,6 +67,7 @@ public class JogoController {
     public String cadastrarJogo(Model model, @ModelAttribute Jogo jogo, @RequestParam String consoleID) {
         Console consoleSelecionado = consoleService.selectbyID(consoleID);
         jogo.setConsole(consoleSelecionado);
+        jogo.setAdd(LocalDateTime.now());
         System.out.println(jogo.getConsole().getID());
         jogoService.insert(jogo);
         return "redirect:/menu";
