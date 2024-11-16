@@ -8,14 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Console")
+@Table(name = "console")
 public class Console {
-
-    public Console(String ID, String empresa, String nome) {
-        this.ID = ID;
-        this.empresa = empresa;
-        this.nome = nome;
-    }
+    
     @Id
     String ID;
     String empresa;

@@ -1,4 +1,4 @@
-package com.veryona.jogos.data;
+package com.veryona.jogos.repository;
 
 import com.veryona.jogos.model.Console;
 import org.springframework.data.jpa.repository.JpaRepository;

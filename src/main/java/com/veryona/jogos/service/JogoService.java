@@ -1,7 +1,6 @@
 package com.veryona.jogos.service;
 
-
-import com.veryona.jogos.data.JogoRepository;
+import com.veryona.jogos.repository.JogoRepository;
 import com.veryona.jogos.model.Jogo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +10,20 @@ import org.springframework.stereotype.Service;
 public class JogoService {
     
     @Autowired
-    JogoRepository repository;
+    JogoRepository jogoRepository;
     
     //Select
     public Jogo selectByID(String ID){
-        return repository.findById(ID).orElseThrow();
+        return jogoRepository.findById(ID).orElseThrow();
     }
     public List<Jogo> selectAll(){
-        return repository.findAll();
+        return jogoRepository.findAll();
     }
     
     //Insert
     public Jogo insert(Jogo jogo){
-        if(jogo == null){
-            repository.save(jogo);
+        if(jogo != null){
+            jogoRepository.save(jogo);
             return jogo;
         } else {
             return null;
@@ -33,6 +32,6 @@ public class JogoService {
     
     //Delete
     public void delete(String ID){
-        repository.deleteById(ID);
+        jogoRepository.deleteById(ID);
     }
 }

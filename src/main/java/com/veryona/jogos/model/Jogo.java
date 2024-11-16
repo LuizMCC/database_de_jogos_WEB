@@ -4,8 +4,12 @@
  */
 package com.veryona.jogos.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.sql.Blob;
@@ -16,13 +20,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Jogo")
+@Table(name = "jogo")
 public class Jogo {
-    
-    @ManyToOne
-    Console console;
+
     @Id
     String ID;
+    @ManyToOne
+    @JoinColumn(name="console_ID")
+    Console console;
     String nome;
     String regiao;
     String versao;
@@ -32,6 +37,7 @@ public class Jogo {
     String classificacao;
     String dataLancamento;
     String arquivo;
+    @Column(name = "adicionado")
     LocalDateTime add;
     Blob capaFrente;
     Blob capaLateral;
@@ -42,35 +48,6 @@ public class Jogo {
     String midia;
     String fontes;
     String descricao;
-
-    public Jogo(){
-        
-    }
-
-    public Jogo(Console console, String ID, String nome, String regiao, String versao, double mb, String dev, String pub, String classificacao, String dataLancamento, String arquivo, Blob capaFrente, Blob capaLateral, Blob capaCostas, Blob capaMidia, String linguagens, String genero, String midia, String fontes, String descricao) {
-        this.console = console;
-        this.ID = ID;
-        this.nome = nome;
-        this.regiao = regiao;
-        this.versao = versao;
-        this.mb = mb;
-        this.dev = dev;
-        this.pub = pub;
-        this.classificacao = classificacao;
-        this.dataLancamento = dataLancamento;
-        this.arquivo = arquivo;
-        this.capaFrente = capaFrente;
-        this.capaLateral = capaLateral;
-        this.capaCostas = capaCostas;
-        this.capaMidia = capaMidia;
-        this.linguagens = linguagens;
-        this.genero = genero;
-        this.midia = midia;
-        this.fontes = fontes;
-        this.descricao = descricao;
-    }
-    
-    
 
     public Console getConsole() {
         return console;

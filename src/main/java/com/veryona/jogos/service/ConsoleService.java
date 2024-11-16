@@ -1,6 +1,6 @@
 package com.veryona.jogos.service;
 
-import com.veryona.jogos.data.ConsoleRepository;
+import com.veryona.jogos.repository.ConsoleRepository;
 import com.veryona.jogos.model.Console;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
