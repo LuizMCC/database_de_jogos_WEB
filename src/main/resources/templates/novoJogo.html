@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         
         <h1>Insira as informações do jogo que deseja cadastrar</h1>
         
-        <form th:action="@{/novoJogo}" th:object="${jogo}" method="post">
+        <form th:action="@{/novoJogo}" th:object="${jogo}" method="post" enctype="multipart/form-data">
             <label for="jogoPlataforma">Plataforma do jogo</label>
             <input type="text" id="jogoPlataforma" list="plataformas" name="consoleID" th:required="required"/>
             <datalist id="plataformas" >
@@ -66,6 +66,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             
             <label for="jogoFontes">Fontes das informações(Se as informação forem da capa do jogo, não coloqueas)</label><br/>
             <textarea id="jogoFontes" th:field="*{fontes}"/>
+            
+            <label for="jogoImagemF">Imagem da capa de frente</label>
+            <input type="file" accept="image/*" id="jogoImagemF" name="imagemFrente"/>
             
             <input type="submit" value="Adicionar"/>
         </form>
