@@ -17,10 +17,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         
         <form th:action="@{/novoJogo}" th:object="${jogo}" method="post" enctype="multipart/form-data">
             <label for="jogoPlataforma">Plataforma do jogo</label>
-            <input type="text" id="jogoPlataforma" list="plataformas" name="consoleID" th:required="required"/>
-            <datalist id="plataformas" >
+            <select id="jogoPlataforma" name="consoleID" th:required="required">
                 <option th:each="console : ${consoles}" th:value="${console.ID}" th:label="${console.nome}"/>
-            </datalist><br/>
+            </select><br/>
             
             <label for="jogoID">ID do jogo</label>
             <input type="text" id="jogoID" th:field="*{ID}" th:required="required"/><br/>
