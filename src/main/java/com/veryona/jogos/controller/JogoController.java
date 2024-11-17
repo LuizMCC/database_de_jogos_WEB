@@ -32,17 +32,13 @@ public class JogoController {
 
     List<Jogo> jogos;
     List<Console> consoles;
-    DateTimeFormatter dataForm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
-    @PostConstruct
-    public void init(){
-        jogos = jogoService.selectAll();
-        consoles = consoleService.selectAll();
-    }
-
     @GetMapping("/menu")
     public String mostrarMenu(Model model) {
 
+        jogos = jogoService.selectAll();
+        consoles = consoleService.selectAll();
+        
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
         return "index";
@@ -57,6 +53,8 @@ public class JogoController {
 
     @GetMapping("/novoJogo")
     public String cadastroJogo(Model model) {
+        
+        consoles = consoleService.selectAll();
 
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogo", new Jogo());

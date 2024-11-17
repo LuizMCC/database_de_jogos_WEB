@@ -36,7 +36,7 @@ public class Jogo {
     String pub;
     String classificacao;
     @Column(name = "lancamento")
-    String dataLancamento;
+    LocalDate dataLancamento;
     String arquivo;
     @Column(name = "adicionado")
     LocalDateTime add;
@@ -127,11 +127,11 @@ public class Jogo {
         this.classificacao = classificacao;
     }
     
-    public String getDataLancamento() {
+    public LocalDate getDataLancamento() {
         return dataLancamento;
     }
 
-    public void setDataLancamento(String dataLancamento) {
+    public void setDataLancamento(LocalDate dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 

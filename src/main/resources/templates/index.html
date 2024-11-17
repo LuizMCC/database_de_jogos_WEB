@@ -27,16 +27,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             let column = this;
 
                             if (column.header().innerText === 'Plataforma') {
-                                
+
                                 let select = document.getElementById('filtro');
 
-                                // Apply listener for user change in value
+                                if (select.value) {
+                                    column
+                                            .search(select.value, {exact: true})
+                                            .draw();
+                                }
+
                                 select.addEventListener('change', function () {
                                     column
                                             .search(select.value, {exact: true})
                                             .draw();
                                 });
-                                
+
                             }
                         });
                     }
