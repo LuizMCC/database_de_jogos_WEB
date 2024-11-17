@@ -47,11 +47,13 @@ public class JogoController {
     @GetMapping("/menu")
     public String mostrarMenu(Model model) {
 
-        jogos = jogoService.selectAll();
         consoles = consoleService.selectAll();
+        Jogo ultimoJogo = jogoService.selectLastAdd();
+        jogos = jogoService.selectAll();
 
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);
+        model.addAttribute("ultimoJogo", ultimoJogo);
         return "index";
     }
 

@@ -86,7 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </tbody>
                     </table>
                 </div>
-                <div class="col-auto" th:if="${not #lists.isEmpty(jogos)}" th:with="ultimoJogo=${jogos[#lists.size(jogos) - 1]}">
+                <div class="col-auto">
                     <p><b>Ultimo jogo adicionado:</b></p><br/>
                     <a th:href="@{jogo(ID=${ultimoJogo.ID})}"><span th:text="${ultimoJogo.nome}"/></a>
                 </div>

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JogoRepository extends JpaRepository<Jogo, String>{
-    
+    Jogo findTopByOrderByAddDesc();
 }

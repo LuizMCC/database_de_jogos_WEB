@@ -19,6 +19,9 @@ public class JogoService {
     public List<Jogo> selectAll(){
         return jogoRepository.findAll();
     }
+    public Jogo selectLastAdd(){
+        return jogoRepository.findTopByOrderByAddDesc();
+    }
     
     //Insert
     public Jogo insert(Jogo jogo){
