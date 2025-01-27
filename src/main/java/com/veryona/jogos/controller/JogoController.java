@@ -44,7 +44,7 @@ public class JogoController {
     List<Jogo> jogos;
     List<Console> consoles;
 
-    @GetMapping("/menu")
+    @GetMapping("/")
     public String mostrarMenu(Model model) {
 
         consoles = consoleService.selectAll();
