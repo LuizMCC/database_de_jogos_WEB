@@ -41,15 +41,15 @@ public class JogoController {
     @Autowired
     ConsoleService consoleService;
 
-    List<Jogo> jogos;
     List<Console> consoles;
 
     @GetMapping("/")
     public String mostrarMenu(Model model) {
-
+        
+        List<Jogo> jogos;
         consoles = consoleService.selectAll();
         Jogo ultimoJogo = jogoService.selectLastAdd();
-        jogos = jogoService.selectAll();
+        jogos = jogoService.selectLista();
 
         model.addAttribute("consoles", consoles);
         model.addAttribute("jogos", jogos);

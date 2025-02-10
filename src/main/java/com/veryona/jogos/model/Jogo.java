@@ -4,8 +4,10 @@
  */
 package com.veryona.jogos.model;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,14 +42,23 @@ public class Jogo {
     String arquivo;
     @Column(name = "adicionado")
     LocalDateTime add;
+    
     @Column(name = "capafrente")
+    @Basic(fetch = FetchType.LAZY)
     Blob capaFrente;
+    
     @Column(name = "capalateral")
+    @Basic(fetch = FetchType.LAZY)
     Blob capaLateral;
+    
     @Column(name = "capacostas")
+    @Basic(fetch = FetchType.LAZY)
     Blob capaCostas;
+    
     @Column(name = "capamidia")
+    @Basic(fetch = FetchType.LAZY)
     Blob capaMidia;
+    
     String linguagens;
     String genero;
     @Column(name="midiatipo")
@@ -57,6 +68,18 @@ public class Jogo {
 
     public Console getConsole() {
         return console;
+    }
+
+    public Jogo(String ID, Console console, String nome, String regiao, LocalDate dataLancamento) {
+        this.ID = ID;
+        this.console = console;
+        this.nome = nome;
+        this.regiao = regiao;
+        this.dataLancamento = dataLancamento;
+    }
+    
+    public Jogo(){
+        
     }
 
     public void setConsole(Console console) {
