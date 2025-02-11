@@ -24,15 +24,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                      width: 512px;
                      height: 512px;">
                     <div class="imagem col-auto">
-                        <img th:src="'data:image/png;base64,' + ${capaFrente}" alt="Imagem frotal da capa" style="
+                        <img th:src="'data:image/png;base64,' + (${capaFrente} ?: ${capaMidia})" alt="Imagem frotal da capa" style="
                              max-width: 512px;
                              max-height: 512px;
                              width: auto;
                              height: auto;
                              object-fit: contain;
                              display: block;
-                             padding-top: 2.6px;
-                             padding-bottom: 2.05px;"/>
+                             padding-top: 2.4px;
+                             padding-bottom: 2.5px;"/>
                     </div>
                 </div>
                 <div class="col-auto"><!--

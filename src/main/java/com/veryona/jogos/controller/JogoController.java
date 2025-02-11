@@ -67,9 +67,16 @@ public class JogoController {
             byte[] imagemBytes = capaFrenteBlob.getBytes(1, (int) capaFrenteBlob.length());
             capaFrenteBase64 = Base64.getEncoder().encodeToString(imagemBytes);
         }
+        Blob capaMidiaBlob = jogoAchado.getCapaMidia();
+        String capaMidiaBase64 = null;
+        if (capaMidiaBlob != null) {
+            byte[] imagemBytes = capaMidiaBlob.getBytes(1, (int) capaMidiaBlob.length());
+            capaMidiaBase64 = Base64.getEncoder().encodeToString(imagemBytes);
+        }
         
         model.addAttribute("jogo", jogoAchado);
         model.addAttribute("capaFrente", capaFrenteBase64);
+        model.addAttribute("capaMidia", capaMidiaBase64);
         return "jogo";
     }
 
