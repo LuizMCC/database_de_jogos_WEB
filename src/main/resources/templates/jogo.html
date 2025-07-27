@@ -135,7 +135,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <span class="align-text-center">Classificação:</span>
                                 </td>
                                 <td>
-                                    <input type="text" disabled="disabled" th:value="${jogo.classificacao}" class="jogoDetalhesInput"/><br/>
+                                    <!-- <input type="text" disabled="disabled" th:value="${jogo.classificacao}" class="jogoDetalhesInput"/><br/> -->
+                                    <img th:src="@{'/images/ClassIndic' + (${jogo.classificacao}) + '.png'}" style="
+                                         max-width: 30px;
+                                         max-height: 30px;
+                                         margin-left: 8px"\>
                                 </td>
                             </tr>
                             <tr> <!-- Lançamento -->
