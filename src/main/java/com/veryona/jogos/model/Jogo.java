@@ -8,18 +8,17 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "jogo")
@@ -27,19 +26,30 @@ public class Jogo {
 
     @Id
     String ID;
+    
     @ManyToOne
     @JoinColumn(name="console_ID")
     Console console;
+    
     String nome;
+    
     String regiao;
+    
     String versao;
+    
     double mb;
+    
     String dev;
+    
     String pub;
+    
     String classificacao;
+    
     @Column(name = "lancamento")
     LocalDate dataLancamento;
+    
     String arquivo;
+    
     @Column(name = "adicionado")
     LocalDateTime add;
     
@@ -60,12 +70,24 @@ public class Jogo {
     Blob capaMidia;
     
     String linguagens;
+    
     String genero;
+    
     @Column(name="midiatipo")
     String midiaTipo;
+    
     String fontes;
+    
     String descricao;
-
+    
+    @ManyToMany
+    @JoinTable(
+            name = "func_jogo",
+            joinColumns = @JoinColumn(name = "jogo_ID"),
+            inverseJoinColumns = @JoinColumn(name = "func_ID")
+    )
+    Set<Func> funcs = new HashSet<>();
+    
     public Console getConsole() {
         return console;
     }
@@ -245,4 +267,22 @@ public class Jogo {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String getMidiaTipo() {
+        return midiaTipo;
+    }
+
+    public void setMidiaTipo(String midiaTipo) {
+        this.midiaTipo = midiaTipo;
+    }
+
+    public Set<Func> getFuncs() {
+        return funcs;
+    }
+
+    public void setFuncs(Set<Func> funcs) {
+        this.funcs = funcs;
+    }
+    
+    
 }
